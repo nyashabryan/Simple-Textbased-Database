@@ -3,7 +3,7 @@
 #include "database.h"
 
 using namespace KTMNYA001;
-void KTMNYA001::add_student(std::vector<StudentRecord> database){
+vector<StudentRecord> KTMNYA001::add_student(std::vector<StudentRecord> database){
 
         struct StudentRecord student;
 
@@ -22,19 +22,20 @@ void KTMNYA001::add_student(std::vector<StudentRecord> database){
         // put the student into the database
         database.push_back(student);
 
-        // confirm student saved.
-        std::cout << "Student saved successfully\n";
+        return database;
     }
 
 void KTMNYA001::save_database(
     std::vector<StudentRecord> database){
     
     // Instantiate student
-    StudentRecord student;
+    struct StudentRecord student;
 
     // Instantiate filestream
     ofstream ofs("database.txt");
     // iterate through the vector
+    std::cout << database.size();
+
     for (int i = 0; i < database.size(); i++){
         student = database[i];
         ofs << student.Name << ";";
@@ -48,3 +49,45 @@ void KTMNYA001::save_database(
     std::cout << "Database has been saved\n";
 }
 
+std::vector<StudentRecord> KTMNYA001::read_database(std::vector<StudentRecord> database){
+
+    // Instantiate student
+    struct StudentRecord student;
+
+    // Instantiate filestream
+    ifstream ifs("database.txt");
+
+    // Instantiate string line
+    string line;
+
+    // instantiate delimiter
+    string delimiter = ";";
+
+    // Instantiate token
+    string token;
+
+    while (getline(ifs, line)){
+        // Process line into student.
+
+        // Load the student name
+        token = line.substr(0, line.find(delimiter));
+        student.Name = token;
+        line.erase(0, line.find(delimiter) + delimiter.size());
+
+        // Load the student surname
+        token = line.substr(0, line.find(delimiter));
+        student.Surname = token;
+        line.erase(0, line.find(delimiter) + delimiter.size());
+
+        // Load the student number
+        token = line.substr(0, line.find(delimiter));
+        student.StudentNumber = token;
+        line.erase(0, line.find(delimiter) + delimiter.size());
+
+        database.push_back(student);
+    }
+
+    ifs.close();
+
+    std::cout << "Database loaded successfully.";
+}

@@ -16,9 +16,9 @@ namespace KTMNYA001 {
         std::string ClassRecord;
     };
 
-    void add_student(std::vector<StudentRecord> database);
+    vector<StudentRecord> add_student(std::vector<StudentRecord> database);
 
-    void read_database(
+    vector<StudentRecord> read_database(
         std::vector<StudentRecord> database
     );
 
@@ -31,7 +31,7 @@ namespace KTMNYA001 {
         std::string student_number
     );
 
-    float grade_student(
+    void grade_student(
         std::vector<StudentRecord> database,
         std::string student_number
     );
