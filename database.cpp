@@ -44,6 +44,7 @@ void KTMNYA001::save_database(
         ofs << "\n";
     }
 
+    ofs.close();
     std::cout << "Database has been saved\n";
 }
 

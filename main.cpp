@@ -26,7 +26,7 @@ int main()
     string choice;
     // loop forever
     for (;;){
-        
+        system("clear");
         for(int i = 0; i < mainQuery.size(); i++)
             cout << mainQuery[i] << "\n";
 
@@ -41,7 +41,11 @@ int main()
 
         }else if(choice == "1"){
 
+            read_database(database);
+            
         }else if(choice == "2"){
+
+            save_database(database);
 
         }else if(choice == "3"){
 
