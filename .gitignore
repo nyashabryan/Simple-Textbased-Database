@@ -3,3 +3,5 @@
 incl.defs
 main
 .*
+*.txt
+*.csv
