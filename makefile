@@ -12,8 +12,8 @@ BIN=./bin
 
 CC=g++
 CCFLAGS=-std=c++11
-SOURCES=main.cpp
-OBJECTS=main.o
+SOURCES=main.cpp database.cpp
+OBJECTS=main.o database.o
 
 main: $(OBJECTS)
 	$(CC) $(CCFLAGS) $(OBJECTS) -o main $(LIBS)
