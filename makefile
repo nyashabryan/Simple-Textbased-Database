@@ -26,4 +26,4 @@ depend:
 	$(CC) -M $(SOURCES) > incl.defs
 
 run:
-	.\main
+	./main
