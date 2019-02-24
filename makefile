@@ -24,3 +24,6 @@ main: $(OBJECTS)
 # Type "make depend" to make dependencies
 depend:
 	$(CC) -M $(SOURCES) > incl.defs
+
+run:
+	.\main
