@@ -5,11 +5,15 @@
 #include <iostream>
 #include <ostream>
 #include <cstdlib>
+#include "database.h"
 
 using namespace std;
+using namespace KTMNYA001;
 
 int main()
 {
+    vector<StudentRecord> database;
+
     vector<string> mainQuery;
     mainQuery.push_back("0: Add student");
     mainQuery.push_back("1: Read database");
@@ -30,6 +34,21 @@ int main()
         system("clear");
         if (choice == "q"){
             break;
+
+        }else if(choice == "0"){
+
+            add_student(database);
+
+        }else if(choice == "1"){
+
+        }else if(choice == "2"){
+
+        }else if(choice == "3"){
+
+        }else if(choice == "4"){
+
+        }else{
+            cout << "Invalid Choice. Please choose another.\n";
         }
     
     }
