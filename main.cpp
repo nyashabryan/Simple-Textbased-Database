@@ -37,14 +37,23 @@ int main()
         }else if(choice == "0"){
 
             database = add_student(database);
+            system("clear");
+            // Alert student has been added to database
+            cout << "Student has been successfully added to database\n";
 
         }else if(choice == "1"){
 
             database = read_database(database);
+            system("clear");
+            // Alert database has been loaded
+            cout << "Database has been loaded\n";
 
         }else if(choice == "2"){
 
             save_database(database);
+            system("clear");
+            // Alert database has been saved.
+            cout << "Database has been saved.\n";
 
         }else if(choice == "3"){
 

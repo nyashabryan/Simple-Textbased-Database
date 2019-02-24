@@ -46,7 +46,6 @@ void KTMNYA001::save_database(
     }
 
     ofs.close();
-    std::cout << "Database has been saved\n";
 }
 
 std::vector<StudentRecord> KTMNYA001::read_database(std::vector<StudentRecord> database){
