@@ -2,3 +2,4 @@
 *.o
 incl.defs
 main
+.*
