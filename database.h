@@ -14,6 +14,19 @@ namespace KTMNYA001 {
         std::vector<StudentRecord> database
         );
 
+    void read_database(
+        std::vector<StudentRecord> database
+    );
+
+    void save_database(
+        std::vector<StudentRecord> database
+    );
+
+    float grade_student(
+        std::vector<StudentRecord> database,
+        std::string student_number
+    );
+
     struct StudentRecord{
         std::string Name;
         std::string Surname;
