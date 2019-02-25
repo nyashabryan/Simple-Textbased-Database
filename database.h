@@ -18,18 +18,11 @@ namespace KTMNYA001 {
 
     vector<StudentRecord> add_student(std::vector<StudentRecord> database);
 
-    vector<StudentRecord> read_database(
-        std::vector<StudentRecord> database
-    );
+    vector<StudentRecord> read_database(std::vector<StudentRecord> database);
 
-    void save_database(
-        std::vector<StudentRecord> database
-    );
+    void save_database(std::vector<StudentRecord> database);
 
-    void display_student(
-        std::vector<StudentRecord> database,
-        std::string student_number
-    );
+    void display_student(std::vector<StudentRecord> database);
 
     void grade_student(
         std::vector<StudentRecord> database,

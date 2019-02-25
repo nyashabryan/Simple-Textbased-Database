@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 #include "database.h"
 
 using namespace KTMNYA001;
@@ -88,5 +89,33 @@ std::vector<StudentRecord> KTMNYA001::read_database(std::vector<StudentRecord> d
 
     ifs.close();
 
-    std::cout << "Database loaded successfully.";
+    return database;
+}
+
+void KTMNYA001::display_student(std::vector<StudentRecord> database){
+    // Ask the user for student number
+    std::cout << "Please enter the student number: \n";
+
+    // take in the student number
+    string student_number;
+
+    std::cin >> student_number;
+
+    // Clear screen
+    system("clear");
+
+    // search for student number in database
+    for (int i = 0; i < database.size(); i++){
+        if (database[i].StudentNumber == student_number){
+            std::cout << "Student found" << "\n";
+            std::cout << "Name:" << database[i].Name << "\n";
+            std::cout << "Surname:" << database[i].Surname << "\n";
+            std::cout << "Student Number:" << database[i].StudentNumber << "\n";
+            std::cout << "Class Record:" << database[i].ClassRecord << "\n";
+            std::cout << "\n";
+            return ;
+        }
+    }
+
+    std::cout << "Student was not found\n\n";
 }

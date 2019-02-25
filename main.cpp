@@ -57,6 +57,8 @@ int main()
 
         }else if(choice == "3"){
 
+            display_student(database);
+
         }else if(choice == "4"){
 
         }else{
