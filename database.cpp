@@ -112,7 +112,7 @@ std::vector<StudentRecord> KTMNYA001::read_database(std::vector<StudentRecord> d
         // Load the stude class record
         token = line.substr(0, line.find(delimiter));
         student.ClassRecord = token;
-        
+
         database.push_back(student);
     }
 
@@ -146,7 +146,7 @@ void KTMNYA001::display_student(std::vector<StudentRecord> database){
         }
     }
 
-    std::cout << "Student was not found\n\n";
+    std::cerr << "Student was not found\n\n";
 }
 
 
@@ -185,5 +185,5 @@ void KTMNYA001::grade_student(vector<StudentRecord> database){
     }
 
     // Failed to find student
-    std::cout << "Failed to find the specified student" << std::endl;
+    std::cerr << "Failed to find the specified student" << std::endl;
 }
