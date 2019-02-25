@@ -24,10 +24,7 @@ namespace KTMNYA001 {
 
     void display_student(std::vector<StudentRecord> database);
 
-    void grade_student(
-        std::vector<StudentRecord> database,
-        std::string student_number
-    );
+    void grade_student(std::vector<StudentRecord> database);
 }
 
 #endif

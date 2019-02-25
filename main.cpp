@@ -12,6 +12,7 @@ using namespace KTMNYA001;
 
 int main()
 {
+    system("clear");
     vector<StudentRecord> database;
 
     vector<string> mainQuery;
@@ -61,8 +62,10 @@ int main()
 
         }else if(choice == "4"){
 
+            grade_student(database);
+
         }else{
-            cout << "Invalid Choice. Please choose another.\n";
+            cerr << "Invalid Choice. Please choose another.\n";
         }
     
     }
