@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
+#include <algorithm>
+#include <string>
 #include "database.h"
 
 using namespace KTMNYA001;
@@ -9,8 +11,12 @@ vector<StudentRecord> KTMNYA001::add_student(std::vector<StudentRecord> database
 
     struct StudentRecord student;
 
+    std::string data;
     std::cout << "Enter the student number: "<< std::endl;
-    std::cin >> student.StudentNumber;
+    std::cin >> data;
+    // conversion to lower case
+    std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+    student.StudentNumber = data;
 
     string value;
     std::getline(std::cin, value);
@@ -126,9 +132,11 @@ void KTMNYA001::display_student(std::vector<StudentRecord> database){
     std::cout << "Please enter the student number: \n";
 
     // take in the student number
-    string student_number;
-
-    std::cin >> student_number;
+    string data;
+    std::cin >> data;
+    // transform to lower case
+    std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+    string student_number = data;
 
     // Clear screen
     system("clear");
@@ -156,10 +164,13 @@ void KTMNYA001::grade_student(vector<StudentRecord> database){
     std::cout << "Enter student number for grading: " << std::endl;
 
     string student_number;
+    string data;
     StudentRecord student;
 
-    std::cin >> student_number;
-
+    std::cin >> data;
+    // Transform data to lower case.
+    std::transform(data.begin(), data.end(), data.begin(), ::towlower);
+    student_number = data;
     // Clear screen
     system("clear");
 

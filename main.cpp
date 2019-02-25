@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <ostream>
+#include <algorithm>
 #include <cstdlib>
 #include "database.h"
 
@@ -33,35 +34,37 @@ int main()
         cin >> choice;
         system("clear");
         if (choice == "q"){
+            cout << "Exiting the database application" << std::endl;
             break;
 
         }else if(choice == "0"){
-
+            
+            cout << "Selected addStudent function" << std::endl;
             database = add_student(database);
             system("clear");
             // Alert student has been added to database
             cout << "Student has been successfully added to database\n";
 
         }else if(choice == "1"){
-
+            cout << "Selected readDatabase function" << std::endl;
             database = read_database(database);
             system("clear");
             // Alert database has been loaded
             cout << "Database has been loaded\n";
 
         }else if(choice == "2"){
-
+            cout << "Selected saveDatabase function" << std::endl;
             save_database(database);
             system("clear");
             // Alert database has been saved.
             cout << "Database has been saved.\n";
 
         }else if(choice == "3"){
-
+            cout << "Selected queryStudent function" << std::endl;
             display_student(database);
 
         }else if(choice == "4"){
-
+            cout << "Selected gradeStudent function" << std::endl;
             grade_student(database);
 
         }else{
