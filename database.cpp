@@ -7,50 +7,50 @@
 using namespace KTMNYA001;
 vector<StudentRecord> KTMNYA001::add_student(std::vector<StudentRecord> database){
 
-        struct StudentRecord student;
+    struct StudentRecord student;
 
-        std::cout << "Enter the student number: "<< std::endl;
-        std::cin >> student.StudentNumber;
+    std::cout << "Enter the student number: "<< std::endl;
+    std::cin >> student.StudentNumber;
 
-        string value;
-        std::getline(std::cin, value);
+    string value;
+    std::getline(std::cin, value);
 
-        // Check if student already exist in database
-        for (int i = 0; i < database.size(); i++){
+    // Check if student already exist in database
+    for (int i = 0; i < database.size(); i++){
+        
+        if (database[i].StudentNumber == student.StudentNumber){
             
-            if (database[i].StudentNumber == student.StudentNumber){
-                
-                std::cout << "Student already exists. Student information being changed." << std::endl;
+            std::cout << "Student already exists. Student information being changed." << std::endl;
 
-                std::cout << "Enter the student name: " << std::endl;
-                std::getline(std::cin, value);
-                database[i].Name = value;
+            std::cout << "Enter the student name: " << std::endl;
+            std::getline(std::cin, value);
+            database[i].Name = value;
 
-                std::cout << "Enter the student surname: " << std::endl;
-                std::getline(std::cin, value);
-                database[i].Surname = value;
+            std::cout << "Enter the student surname: " << std::endl;
+            std::getline(std::cin, value);
+            database[i].Surname = value;
 
-                std::cout << "Enter the student class record: " << std::endl;
-                std::getline(std::cin, value);
-                database[i].ClassRecord = value;
+            std::cout << "Enter the student class record: " << std::endl;
+            std::getline(std::cin, value);
+            database[i].ClassRecord = value;
 
-                return database;
-            }   
-        }
-
-        std::cout << "Enter the student name: " << std::endl;
-        std::getline(std::cin, student.Name);
-
-        std::cout << "Enter the student surname: " << std::endl;
-        std::getline(std::cin, student.Surname);
-
-        std::cout << "Enter the student class record: " << std::endl;
-        std::getline(std::cin, student.ClassRecord);
-
-        database.push_back(student);
-
-        return database;
+            return database;
+        }   
     }
+
+    std::cout << "Enter the student name: " << std::endl;
+    std::getline(std::cin, student.Name);
+
+    std::cout << "Enter the student surname: " << std::endl;
+    std::getline(std::cin, student.Surname);
+
+    std::cout << "Enter the student class record: " << std::endl;
+    std::getline(std::cin, student.ClassRecord);
+
+    database.push_back(student);
+
+    return database;
+}
 
 void KTMNYA001::save_database(
     std::vector<StudentRecord> database){
@@ -168,7 +168,7 @@ void KTMNYA001::grade_student(vector<StudentRecord> database){
     float total;
 
     int value;
-    int count;
+    int count = 0;
 
     // Loop through to find student
     for (int i = 0; i < database.size(); i++){
@@ -177,10 +177,16 @@ void KTMNYA001::grade_student(vector<StudentRecord> database){
 
             istringstream iss(database[i].ClassRecord);
             while (!iss.eof()){
+                count++;
                 iss >> value;
                 total += (int)value;
             }
-            std::cout << total;
+            
+            float average = total / count;
+
+            std::cout << "The student grade is: " << average << std::endl;
+
+            return ;
         }
     }
 

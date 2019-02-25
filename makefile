@@ -3,8 +3,9 @@
 # 24 February 2019
 
 # include dependencies; rules below
-
-include incl.defs
+ifeq ($(UNAME),incl.defs)
+	include incl.defs
+endif
 
 # Directories
 SRC=./src
@@ -27,3 +28,8 @@ depend:
 
 run:
 	./main
+
+clean:
+	rm *.o
+	rm main
+	rm incl.defs
